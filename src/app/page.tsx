@@ -1,102 +1,138 @@
-import Image from "next/image";
+"use client";
 
-export default function Home() {
-  
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+import React from "react";
+import { Box, Button, Typography } from "@mui/material";
+import Link from "next/link";
+import { StyleSheet } from "./types";
+import CourseList from "@/components/courseList";
+import PlainModal from "@/components/menu/modal";
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+export default function About() {
+    const [courseListOpen, setCourseListOpen] = React.useState(false);
+
+    return (
+        <Box sx={styles.root}>
+            <Box sx={styles.listBox}>
+                <ul style={styles.topicList}>
+                    <li>
+                        <Link href="#Education">
+                            <div className="timeline-start mb-10">
+                                <Typography>Education</Typography>
+                            </div>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="#Alumni">
+                            <div className="timeline-start mb-10">
+                                <Typography>Alumni</Typography>
+                            </div>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link href="#Alumni">
+                            <div className="timeline-start mb-5">
+                                <Typography>Volunteering</Typography>
+                            </div>
+                        </Link>
+                    </li>
+                </ul>
+            </Box>
+            <Box sx={styles.content}>
+                <Box sx={styles.title}>
+                    <Typography variant="h3">About</Typography>
+                </Box>
+                <Box sx={styles.topic}>
+                    <Typography
+                        variant="h4"
+                        id="Education"
+                        sx={styles.topicTitle}
+                    >
+                        Education
+                    </Typography>
+                    <Typography>
+                        Certificate:
+                        <Link
+                            href="https://www.sait.ca/programs-and-courses/certificates/object-oriented-software-development"
+                            style={styles.link}
+                            target="_blank"
+                        >
+                            {" "}
+                            Object Oriented Software Development{" "}
+                        </Link>
+                        <br />
+                        Southern Alberta Institute of Technology (SAIT)
+                        <br />
+                        <i>2020 - 2021 (Condensed)</i>
+                    </Typography>
+                    <br />
+                    <Button onClick={() => setCourseListOpen(true)}>
+                        <Typography
+                            style={styles.listItem}
+                        >
+                            View Course Descriptions <OpenInNewIcon sx={styles.openIcon}/>
+                        </Typography>
+                    </Button>
+                    <br />
+                    <PlainModal
+                        open={courseListOpen}
+                        handleClose={() => setCourseListOpen(false)}
+                    >
+                        <CourseList />
+                    </PlainModal>
+                </Box>
+                <Box sx={styles.topic}>
+                    <Typography variant="h4" id="Alumni" sx={styles.topicTitle}>
+                        Alumni
+                    </Typography>
+                    <Typography variant="h6">Guest Q & A</Typography>
+                </Box>
+            </Box>
+        </Box>
+    );
 }
+
+const styles: StyleSheet = {
+    root: {
+        display: "flex",
+        flexDirection: "row",
+        width: "100%",
+    },
+    listBox: {
+        marginLeft: "4rem",
+        marginTop: "5rem",
+    },
+    topicList: {
+        borderRight: "2px solid rgba(0, 0, 0, 0.12)",
+        paddingTop: "1rem",
+        paddingBottom: "0.5rem",
+        paddingRight: "2rem",
+        position: "sticky",
+        top: "8rem",
+        listStyleType: "none",
+    },
+    content: {
+        paddingLeft: "4rem",
+        maxWidth: "60rem",
+        width: "100%",
+    },
+    title: {
+        marginBottom: "2rem",
+    },
+    topic: {
+        marginBottom: "2rem",
+    },
+    topicTitle: {
+        marginBottom: "1rem",
+    },
+    link: {
+        fontWeight: "bold",
+    },
+    listItem: {
+        fontWeight: "bold",
+    },
+    openIcon: {
+        fontSize: "1.25rem",
+        marginLeft: "0.5rem",
+    },
+};

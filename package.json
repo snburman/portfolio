@@ -10,6 +10,12 @@
     "test": "jest"
   },
   "dependencies": {
+    "@emotion/cache": "^11.13.1",
+    "@emotion/react": "^11.13.3",
+    "@emotion/styled": "^11.13.0",
+    "@mui/icons-material": "^6.1.2",
+    "@mui/material": "^6.1.2",
+    "@mui/material-nextjs": "^6.1.2",
     "next": "14.2.14",
     "react": "^18",
     "react-dom": "^18"
@@ -21,6 +27,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "daisyui": "^4.12.12",
     "eslint": "^8",
     "eslint-config-next": "14.2.14",
     "jest": "^29.7.0",
