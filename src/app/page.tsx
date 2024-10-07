@@ -72,14 +72,13 @@ export default function About() {
                         Education
                     </Typography>
                     <Typography>
-                        Certificate:
+                        Certificate:&nbsp;
                         <Link
                             href="https://www.sait.ca/programs-and-courses/certificates/object-oriented-software-development"
                             style={styles.link}
                             target="_blank"
                         >
-                            {" "}
-                            Object Oriented Software Development{" "}
+                            Object Oriented Software Development
                         </Link>
                         <br />
                         Southern Alberta Institute of Technology (SAIT)
@@ -89,7 +88,7 @@ export default function About() {
                     <br />
                     <Button onClick={() => setCourseListOpen(true)}>
                         <Typography style={styles.listItem}>
-                            View Course Descriptions{" "}
+                            View Course Descriptions&nbsp;
                             <OpenInNewIcon sx={styles.openIcon} />
                         </Typography>
                     </Button>

@@ -29,7 +29,7 @@ export default function LanguageBadges() {
             {badges.map((badge) => (
                 <Image
                     key={badge}
-                    src={`https://badges.pages.dev/badge/${badge}.svg`}
+                    src={`/img/${badge}.svg`}
                     alt={badge}
                     style={styles.badge}
                     width={100}
