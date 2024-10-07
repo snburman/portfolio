@@ -1,1 +1,1 @@
-const MAX_WIDTH_MOBILE = 768;
+export const MAX_WIDTH_MOBILE = 768;
