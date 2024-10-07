@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import * as React from "react";
-import { ibmPlexSans } from "@/app/theme";
 import { StyleSheet } from "@/app/types";
 
 const routes = [
