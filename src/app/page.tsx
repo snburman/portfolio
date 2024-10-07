@@ -141,7 +141,7 @@ export default function About() {
                         <b>Food Service</b>
                     </Typography>
                     <Typography>
-                        Potter's Hands Soup Kitchen
+                        Potter&lsquo;s Hands Soup Kitchen
                     </Typography>
                     <Typography>
                         <i>Present</i>
