@@ -11,6 +11,7 @@ import Link from "next/link";
 import * as React from "react";
 import { StyleSheet } from "@/app/types";
 import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
 
 const routes = [
     {
@@ -68,6 +69,9 @@ export default function AppBarMenu({
                         <Link href="https://github.com/snburman" target="_blank">
                             <GitHubIcon style={styles.icon}/>
                         </Link>
+                        <Link href="https://www.linkedin.com/in/seanburman/" target="_blank">
+                            <LinkedInIcon style={styles.icon}/>
+                        </Link>
                     </Box>
                 </Toolbar>
             </AppBar>
@@ -114,5 +118,6 @@ const styles: StyleSheet = {
     icon: {
         fontSize: "2rem",
         color: "#FFFFFF",
+        marginLeft: "0.5rem",
     },
 };
