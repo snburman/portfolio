@@ -6,7 +6,8 @@ import Link from "next/link";
 import { StyleSheet } from "./types";
 import CourseList from "@/components/courseList";
 import PlainModal from "@/components/menu/modal";
-import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import LanguageBadges from "@/components/languageBadges";
 
 export default function About() {
     const [courseListOpen, setCourseListOpen] = React.useState(false);
@@ -15,6 +16,13 @@ export default function About() {
         <Box sx={styles.root}>
             <Box sx={styles.listBox}>
                 <ul style={styles.topicList}>
+                    <li>
+                        <Link href="#Bio">
+                            <div className="timeline-start mb-10">
+                                <Typography>Bio</Typography>
+                            </div>
+                        </Link>
+                    </li>
                     <li>
                         <Link href="#Education">
                             <div className="timeline-start mb-10">
@@ -45,6 +53,19 @@ export default function About() {
                 <Box sx={styles.topic}>
                     <Typography
                         variant="h4"
+                        id="Bio"
+                        sx={styles.topicTitle}
+                    >
+                        Bio
+                    </Typography>
+                    <LanguageBadges />
+                    <Typography>
+
+                    </Typography>
+                </Box>
+                <Box sx={styles.topic}>
+                    <Typography
+                        variant="h4"
                         id="Education"
                         sx={styles.topicTitle}
                     >
@@ -67,10 +88,9 @@ export default function About() {
                     </Typography>
                     <br />
                     <Button onClick={() => setCourseListOpen(true)}>
-                        <Typography
-                            style={styles.listItem}
-                        >
-                            View Course Descriptions <OpenInNewIcon sx={styles.openIcon}/>
+                        <Typography style={styles.listItem}>
+                            View Course Descriptions{" "}
+                            <OpenInNewIcon sx={styles.openIcon} />
                         </Typography>
                     </Button>
                     <br />
@@ -85,7 +105,52 @@ export default function About() {
                     <Typography variant="h4" id="Alumni" sx={styles.topicTitle}>
                         Alumni
                     </Typography>
-                    <Typography variant="h6">Guest Q & A</Typography>
+                    <Typography>
+                        <b>Guest Q & A</b>
+                    </Typography>
+                    <Typography>
+                        Southern Alberta Institute of Technology (SAIT)
+                    </Typography>
+                    <Typography>
+                        <i>Fall 2022 / 2023</i>
+                    </Typography>
+                    <Typography>
+                        Coordinated with faculty to observe final project
+                        presentations from Object Oriented Software Development
+                        students. Provided feedback and answered questions about
+                        the industry and career paths.
+                    </Typography>
+                    <br />
+                    <Typography>
+                        <b>Mentorship Program</b>
+                    </Typography>
+                    <Typography>
+                        Southern Alberta Institute of Technology (SAIT)
+                    </Typography>
+                    <Typography>
+                        <i>Present</i>
+                    </Typography>
+                    <Typography>Currently working with two fall semester Objected Oriented Software Development students on a weekly basis to
+                        provide guidance, feedback, and support while they prepare to utilize their new skills in the software industry.
+                    </Typography>
+                </Box>
+                <Box sx={styles.topic}>
+                    <Typography variant="h4" id="Alumni" sx={styles.topicTitle}>
+                        Volunteering
+                    </Typography>
+                    <Typography>
+                        <b>Food Service</b>
+                    </Typography>
+                    <Typography>
+                        Potter's Hands Soup Kitchen
+                    </Typography>
+                    <Typography>
+                        <i>Present</i>
+                    </Typography>
+                    <Typography>
+                        Assisting with food preparation, serving, and cleanup for
+                        the homeless and low-income community in Red Deer, Alberta.
+                    </Typography>
                 </Box>
             </Box>
         </Box>

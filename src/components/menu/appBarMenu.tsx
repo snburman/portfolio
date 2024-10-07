@@ -10,6 +10,7 @@ import {
 import Link from "next/link";
 import * as React from "react";
 import { StyleSheet } from "@/app/types";
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 const routes = [
     {
@@ -63,6 +64,11 @@ export default function AppBarMenu({
                             </Link>
                         ))}
                     </Box>
+                    <Box style={styles.iconContainer}>
+                        <Link href="https://github.com/snburman" target="_blank">
+                            <GitHubIcon style={styles.icon}/>
+                        </Link>
+                    </Box>
                 </Toolbar>
             </AppBar>
             {children}
@@ -100,5 +106,13 @@ const styles: StyleSheet = {
     logo: {
         position: "absolute",
         left: "1rem",
+    },
+    iconContainer: {
+        position: "absolute",
+        right: "1rem",
+    },
+    icon: {
+        fontSize: "2rem",
+        color: "#FFFFFF",
     },
 };
