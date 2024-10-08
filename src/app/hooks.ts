@@ -1,7 +1,8 @@
+"use client";
+
 import React from "react";
 
 export function useWindowSize() {
-    if(!window) return undefined;
     const [windowSize, setWindowSize] = React.useState({
         width: window.innerWidth,
         height: window.innerHeight,

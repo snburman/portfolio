@@ -137,6 +137,5 @@ const styles: StyleSheet = {
         fontSize: "1.5rem",
         padding: 0,
         color: "#28292f",
-        // backgroundColor: 'red'
     },
 };
