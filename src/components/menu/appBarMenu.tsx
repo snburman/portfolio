@@ -13,25 +13,6 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import RouteMenu from "./routeMenu";
 
-const routes = [
-    {
-        title: "About",
-        href: "/",
-    },
-    {
-        title: "Experience",
-        href: "/experience",
-    },
-    {
-        title: "Projects",
-        href: "/projects",
-    },
-    {
-        title: "Contact",
-        href: "/contact",
-    },
-];
-
 export default function AppBarMenu({
     children,
 }: {
