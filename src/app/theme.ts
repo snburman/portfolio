@@ -15,6 +15,7 @@ export const ibmPlexSans = IBM_Plex_Sans({
 export const theme = createTheme({
     typography: {
         fontFamily: ibmPlexSans.style.fontFamily,
+        fontSize: 16,
         h3: {
             fontFamily: recursive.style.fontFamily,
         },

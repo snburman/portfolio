@@ -3,16 +3,15 @@
 import {
     AppBar,
     Box,
-    Button,
     Toolbar,
     Typography,
 } from "@mui/material";
 import Link from "next/link";
 import * as React from "react";
-import { usePathname } from 'next/navigation'
 import { StyleSheet } from "@/app/types";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import RouteMenu from "./routeMenu";
 
 const routes = [
     {
@@ -39,8 +38,6 @@ export default function AppBarMenu({
     children: React.ReactNode;
 }) {
 
-    const pathname = usePathname();
-
     return (
         <Box sx={styles.root}>
             <AppBar>
@@ -52,21 +49,7 @@ export default function AppBarMenu({
                             </Typography>
                         </Link>
                     </Box>
-                    <Box sx={styles.menu}>
-                        {routes.map((route) => (
-                            <Link
-                                key={route.title}
-                                href={route.href}
-                            >
-                                <Button sx={[styles.menuButton, {
-                                    fontWeight: pathname === route.href ? "bold" : "normal",
-                                    borderBottom: pathname === route.href ? "1px solid #FFFFFF" : "none",
-                                }]}>
-                                    {route.title}
-                                </Button>
-                            </Link>
-                        ))}
-                    </Box>
+                    <RouteMenu />
                     <Box style={styles.iconContainer}>
                         <Link href="https://github.com/snburman" target="_blank">
                             <GitHubIcon style={styles.icon}/>
@@ -99,20 +82,6 @@ const styles: StyleSheet = {
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
-    },
-    menu: {
-        display: "flex",
-        gap: "1rem",
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-        justifySelf: "center",
-        padding: "1rem",
-    },
-    menuButton: {
-        fontSize: "1rem",
-        borderRadius: 0,
-        color: "#FFFFFF !important",
     },
     logo: {
         position: "absolute",

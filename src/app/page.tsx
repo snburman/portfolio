@@ -9,7 +9,15 @@ import PlainModal from "@/components/modal";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import LanguageBadges from "@/components/languageBadges";
 import { useWindowSize } from "./hooks";
-import { MAX_WIDTH_MOBILE } from "./contants";
+import { MAX_WIDTH_MOBILE } from "./constants";
+import AnchorMenu from "@/components/menu/anchorMenu";
+
+const sections = [
+    { title: "Bio" },
+    { title: "Education" },
+    { title: "Alumni" },
+    { title: "Volunteering" },
+];
 
 export default function About() {
     const [courseListOpen, setCourseListOpen] = React.useState(false);
@@ -18,48 +26,9 @@ export default function About() {
 
     return (
         <Box sx={styles.root}>
-            {/* //TODO: conditional render seperate component */}
-            <Box
-                sx={[
-                    styles.listBox,
-                    {
-                        width: isMobile ? 0 : "auto",
-                        margin: isMobile ? "0" : "5rem 0 0 4rem",
-                        visibility: isMobile ? "hidden" : "visible",
-                    },
-                ]}
-            >
-                <ul style={styles.topicList}>
-                    <li>
-                        <Link href="#Bio">
-                            <div className="timeline-start mb-10">
-                                <Typography>Bio</Typography>
-                            </div>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="#Education">
-                            <div className="timeline-start mb-10">
-                                <Typography>Education</Typography>
-                            </div>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="#Alumni">
-                            <div className="timeline-start mb-10">
-                                <Typography>Alumni</Typography>
-                            </div>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link href="#Volunteering">
-                            <div className="timeline-start mb-5">
-                                <Typography>Volunteering</Typography>
-                            </div>
-                        </Link>
-                    </li>
-                </ul>
-            </Box>
+            {
+                !isMobile && <AnchorMenu items={sections}/>
+            }
             <Box sx={[styles.content, { marginLeft: isMobile ? "0" : "4rem" }]}>
                 <Box sx={styles.title}>
                     <Typography variant="h3">About</Typography>
@@ -175,15 +144,6 @@ const styles: StyleSheet = {
     listBox: {
         marginLeft: "4rem",
         marginTop: "5rem",
-    },
-    topicList: {
-        borderRight: "2px solid rgba(0, 0, 0, 0.12)",
-        paddingTop: "1rem",
-        paddingBottom: "0.5rem",
-        paddingRight: "2rem",
-        position: "sticky",
-        top: "8rem",
-        listStyleType: "none",
     },
     content: {
         maxWidth: "60rem",
