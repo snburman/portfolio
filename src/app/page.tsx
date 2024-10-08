@@ -5,16 +5,30 @@ import { Box, Button, Typography } from "@mui/material";
 import Link from "next/link";
 import { StyleSheet } from "./types";
 import CourseList from "@/components/courseList";
-import PlainModal from "@/components/menu/modal";
+import PlainModal from "@/components/modal";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import LanguageBadges from "@/components/languageBadges";
+import { useWindowSize } from "./hooks";
+import { MAX_WIDTH_MOBILE } from "./contants";
 
 export default function About() {
     const [courseListOpen, setCourseListOpen] = React.useState(false);
+    const windowSize = useWindowSize();
+    const isMobile = windowSize.width < MAX_WIDTH_MOBILE;
 
     return (
         <Box sx={styles.root}>
-            <Box sx={styles.listBox}>
+            {/* //TODO: conditional render seperate component */}
+            <Box
+                sx={[
+                    styles.listBox,
+                    {
+                        width: isMobile ? 0 : "auto",
+                        margin: isMobile ? "0" : "5rem 0 0 4rem",
+                        visibility: isMobile ? "hidden" : "visible",
+                    },
+                ]}
+            >
                 <ul style={styles.topicList}>
                     <li>
                         <Link href="#Bio">
@@ -38,7 +52,7 @@ export default function About() {
                         </Link>
                     </li>
                     <li>
-                        <Link href="#Alumni">
+                        <Link href="#Volunteering">
                             <div className="timeline-start mb-5">
                                 <Typography>Volunteering</Typography>
                             </div>
@@ -46,22 +60,15 @@ export default function About() {
                     </li>
                 </ul>
             </Box>
-            <Box sx={styles.content}>
+            <Box sx={[styles.content, { marginLeft: isMobile ? "0" : "4rem" }]}>
                 <Box sx={styles.title}>
                     <Typography variant="h3">About</Typography>
                 </Box>
                 <Box sx={styles.topic}>
-                    <Typography
-                        variant="h4"
-                        id="Bio"
-                        sx={styles.topicTitle}
-                    >
+                    <Typography variant="h4" id="Bio" sx={styles.topicTitle}>
                         Bio
                     </Typography>
                     <LanguageBadges />
-                    <Typography>
-
-                    </Typography>
                 </Box>
                 <Box sx={styles.topic}>
                     <Typography
@@ -117,7 +124,7 @@ export default function About() {
                         Coordinated with faculty to observe final project
                         presentations from Object Oriented Software Development
                         students. Provided feedback and answered questions about
-                        the industry and career paths.
+                        career paths and my experience in the industry.
                     </Typography>
                     <br />
                     <Typography>
@@ -129,8 +136,12 @@ export default function About() {
                     <Typography>
                         <i>Present</i>
                     </Typography>
-                    <Typography>Currently working with two fall semester Objected Oriented Software Development students on a weekly basis to
-                        provide guidance, feedback, and support while they prepare to utilize their new skills in the software industry.
+                    <Typography>
+                        Currently working with two fall semester Objected
+                        Oriented Software Development students on a weekly basis
+                        to provide guidance, feedback, and support while they
+                        prepare to utilize their new skills in the software
+                        industry.
                     </Typography>
                 </Box>
                 <Box sx={styles.topic}>
@@ -140,15 +151,14 @@ export default function About() {
                     <Typography>
                         <b>Food Service</b>
                     </Typography>
-                    <Typography>
-                        Potter&lsquo;s Hands Soup Kitchen
-                    </Typography>
+                    <Typography>Potter&lsquo;s Hands Soup Kitchen</Typography>
                     <Typography>
                         <i>Present</i>
                     </Typography>
                     <Typography>
-                        Assisting with food preparation, serving, and cleanup for
-                        the homeless and low-income community in Red Deer, Alberta.
+                        Assisting with food preparation, serving, and cleanup
+                        for the homeless and low-income community in Red Deer,
+                        Alberta.
                     </Typography>
                 </Box>
             </Box>
@@ -176,7 +186,6 @@ const styles: StyleSheet = {
         listStyleType: "none",
     },
     content: {
-        paddingLeft: "4rem",
         maxWidth: "60rem",
         width: "100%",
     },
