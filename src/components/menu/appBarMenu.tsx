@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 import * as React from "react";
+import { usePathname } from 'next/navigation'
 import { StyleSheet } from "@/app/types";
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
@@ -37,7 +38,8 @@ export default function AppBarMenu({
 }: {
     children: React.ReactNode;
 }) {
-    const [selected, setSelected] = React.useState(0);
+
+    const pathname = usePathname();
 
     return (
         <Box sx={styles.root}>
@@ -55,11 +57,10 @@ export default function AppBarMenu({
                             <Link
                                 key={route.title}
                                 href={route.href}
-                                onClick={() => setSelected(index)}
                             >
                                 <Button sx={[styles.menuButton, {
-                                    fontWeight: selected === index ? "bold" : "normal",
-                                    borderBottom: selected === index ? "1px solid #FFFFFF" : "none",
+                                    fontWeight: pathname === route.href ? "bold" : "normal",
+                                    borderBottom: pathname === route.href ? "1px solid #FFFFFF" : "none",
                                 }]}>
                                     {route.title}
                                 </Button>
@@ -76,7 +77,14 @@ export default function AppBarMenu({
                     </Box>
                 </Toolbar>
             </AppBar>
-            {children}
+            <Box sx={styles.content}>
+                {children}
+            </Box>
+            <footer style={styles.footer}>
+                <Typography variant="body2" align="center">
+                    © {new Date().getFullYear()} Sean Burman
+                </Typography>
+            </footer>
         </Box>
     );
 }
@@ -84,11 +92,7 @@ export default function AppBarMenu({
 const styles: StyleSheet = {
     root: {
         height: "100%",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        marginTop: "8rem",
+        marginTop: "6rem",
     },
     toolbar: {
         display: "flex",
@@ -122,5 +126,20 @@ const styles: StyleSheet = {
         fontSize: "2rem",
         color: "#FFFFFF",
         marginLeft: "0.5rem",
+    },
+    content: {
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: "1rem",
+    },
+    footer: {
+        width: "100%",
+        padding: "1rem",
+        position: "relative",
+        bottom: 0,
     },
 };
