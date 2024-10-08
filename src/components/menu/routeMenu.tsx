@@ -1,3 +1,5 @@
+"uce client";
+
 import { MAX_WIDTH_MOBILE } from "@/app/constants";
 import { useWindowSize } from "@/app/hooks";
 import { StyleSheet } from "@/app/types";
