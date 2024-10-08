@@ -18,10 +18,10 @@ export default function PlainModal({ open, handleClose, children }: Props) {
             sx={styles.modal}
         >
             <>
+                <Box sx={styles.content}>{children}</Box>
                 <Button style={styles.button} onClick={handleClose}>
                     <CancelIcon style={styles.icon} />
                 </Button>
-                <Box sx={styles.content}>{children}</Box>
             </>
         </Modal>
     );
@@ -32,6 +32,7 @@ const styles: StyleSheet = {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        backgroundColor: "rgba(0, 0, 0, 0.6)",
     },
     content: {
         marginTop: "4.5rem",
@@ -50,9 +51,10 @@ const styles: StyleSheet = {
     },
     button: {
         position: "absolute",
-        right: "0.5rem",
+        right: "1rem",
         top: "1rem",
-        zIndex: 1,
+        zIndex: 100,
+        cursor: "pointer",
         padding: 0,
     },
     icon: {
