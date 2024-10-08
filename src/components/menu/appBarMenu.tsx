@@ -53,7 +53,7 @@ export default function AppBarMenu({
                         </Link>
                     </Box>
                     <Box sx={styles.menu}>
-                        {routes.map((route, index) => (
+                        {routes.map((route) => (
                             <Link
                                 key={route.title}
                                 href={route.href}
