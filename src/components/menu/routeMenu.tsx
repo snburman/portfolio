@@ -31,7 +31,7 @@ const routes = [
 export default function RouteMenu() {
     const pathname = usePathname();
     const window = useWindowSize();
-    const isMobile = window.width < MAX_WIDTH_MOBILE;
+    const isMobile = window ? window.width < MAX_WIDTH_MOBILE: false;
     const containerStyles = isMobile ? styles.menuMobile : styles.menuDesktop;
     const [open, setOpen] = React.useState(false);
 
