@@ -57,8 +57,9 @@ export default function AppBarMenu({
                                 href={route.href}
                                 onClick={() => setSelected(index)}
                             >
-                                <Button color="inherit" sx={[styles.menuButton, {
+                                <Button sx={[styles.menuButton, {
                                     fontWeight: selected === index ? "bold" : "normal",
+                                    borderBottom: selected === index ? "1px solid #FFFFFF" : "none",
                                 }]}>
                                     {route.title}
                                 </Button>
@@ -106,6 +107,8 @@ const styles: StyleSheet = {
     },
     menuButton: {
         fontSize: "1rem",
+        borderRadius: 0,
+        color: "#FFFFFF !important",
     },
     logo: {
         position: "absolute",
