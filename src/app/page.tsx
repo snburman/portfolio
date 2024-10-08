@@ -9,7 +9,7 @@ import PlainModal from "@/components/modal";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import LanguageBadges from "@/components/languageBadges";
 import { useWindowSize } from "./hooks";
-import { MAX_WIDTH_MOBILE } from "./contants";
+import { MAX_WIDTH_MOBILE } from "./constants";
 import AnchorMenu from "@/components/menu/anchorMenu";
 
 const sections = [
@@ -144,15 +144,6 @@ const styles: StyleSheet = {
     listBox: {
         marginLeft: "4rem",
         marginTop: "5rem",
-    },
-    topicList: {
-        borderRight: "2px solid rgba(0, 0, 0, 0.12)",
-        paddingTop: "1rem",
-        paddingBottom: "0.5rem",
-        paddingRight: "2rem",
-        position: "sticky",
-        top: "8rem",
-        listStyleType: "none",
     },
     content: {
         maxWidth: "60rem",
