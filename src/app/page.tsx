@@ -21,14 +21,12 @@ const sections = [
 
 export default function About() {
     const [courseListOpen, setCourseListOpen] = React.useState(false);
-    const windowSize = useWindowSize();
-    const isMobile = windowSize.width < MAX_WIDTH_MOBILE;
+    const window = useWindowSize();
+    const isMobile = window ? window.width < MAX_WIDTH_MOBILE: false;
 
     return (
         <Box sx={styles.root}>
-            {
-                !isMobile && <AnchorMenu items={sections}/>
-            }
+            {!isMobile && <AnchorMenu items={sections} />}
             <Box sx={[styles.content, { marginLeft: isMobile ? "0" : "4rem" }]}>
                 <Box sx={styles.title}>
                     <Typography variant="h3">About</Typography>

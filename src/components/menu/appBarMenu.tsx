@@ -63,6 +63,7 @@ const styles: StyleSheet = {
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
+        height: "4rem"
     },
     logo: {
         position: "absolute",
