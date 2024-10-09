@@ -112,7 +112,7 @@ export default function About() {
                     </Typography>
                 </Box>
                 <Box sx={styles.topic}>
-                    <Typography variant="h4" id="Alumni" sx={styles.topicTitle}>
+                    <Typography variant="h4" id="Volunteering" sx={styles.topicTitle}>
                         Volunteering
                     </Typography>
                     <Typography>

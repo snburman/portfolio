@@ -57,6 +57,7 @@ const styles: StyleSheet = {
     root: {
         height: "100%",
         marginTop: "6rem",
+        zIndex: 1,
     },
     toolbar: {
         display: "flex",
