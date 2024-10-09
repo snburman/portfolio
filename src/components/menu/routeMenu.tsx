@@ -109,7 +109,7 @@ const styles: StyleSheet = {
         width: "100vw",
         height: "calc(100vh - 4rem)",
         position: "fixed",
-        bottom: 0,
+        top: "4rem",
         left: 0,
         backgroundColor: "rgba(0, 0, 0, 0.7)",
         zIndex: 0,
