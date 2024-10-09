@@ -35,9 +35,9 @@ const styles: StyleSheet = {
         backgroundColor: "rgba(0, 0, 0, 0.6)",
     },
     content: {
-        marginTop: "4.5rem",
-        maxHeight: "80%",
-        maxWidth: "80%",
+        marginTop: "4rem",
+        maxHeight: "90%",
+        maxWidth: "95%",
         backgroundColor: "background.paper",
         padding: "1rem",
         overflowY: "scroll",
