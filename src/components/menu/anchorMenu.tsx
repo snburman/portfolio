@@ -2,14 +2,14 @@ import { StyleSheet } from "@/app/types";
 import { Box, Typography } from "@mui/material";
 import Link from "next/link";
 
-export default function AnchorMenu(props: { items: { title: string }[] }) {
+export default function AnchorMenu(props: { data: { title: string }[] }) {
     return (
         <Box sx={styles.listBox}>
             <ul style={styles.topicList}>
-                {props.items.map((item) => (
+                {props.data.map((item) => (
                     <li key={item.title} style={styles.listItem}>
                         <Link href={"#" + item.title}>
-                            <div className="timeline-start mb-10">
+                            <div className="timeline-start mb-5">
                                 <Typography>{item.title}</Typography>
                             </div>
                         </Link>
@@ -22,8 +22,8 @@ export default function AnchorMenu(props: { items: { title: string }[] }) {
 
 const styles: StyleSheet = {
     listBox: {
-        width: "auto",
-        margin: "5rem 0 0 4rem",
+        width: "16rem",
+        margin: "5rem 0 0 2rem",
     },
     topicList: {
         borderRight: "2px solid rgba(0, 0, 0, 0.12)",

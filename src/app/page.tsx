@@ -26,7 +26,7 @@ export default function About() {
 
     return (
         <Box sx={styles.root}>
-            {!isMobile && <AnchorMenu items={sections} />}
+            {!isMobile && <AnchorMenu data={sections} />}
             <Box sx={[styles.content, { marginLeft: isMobile ? "0" : "4rem" }]}>
                 <Box sx={styles.title}>
                     <Typography variant="h3">About</Typography>
