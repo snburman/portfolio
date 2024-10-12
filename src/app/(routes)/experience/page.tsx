@@ -25,6 +25,9 @@ export default function Experience() {
                     <Typography variant="h3">Experience</Typography>
                 </Box>
                 <Box>
+                    <Typography>
+                        Working for a startup for the past few years and being 
+                    </Typography>
                     <LanguageBadges />
                 </Box>
                 <Box>
@@ -349,7 +352,7 @@ const ALtimeLineData: TimeLineData[] = [
             {
                 title: "Fitbit Pairing: Major Update",
                 description:
-                    "Released major update to Fitbit pairing feature with improved user experience across all platforms.",
+                    "Released major update to Fitbit pairing feature with improved UI and APIs for a better user experience.",
             },
         ]
     },
