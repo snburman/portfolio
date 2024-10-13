@@ -5,7 +5,7 @@ export type ContactForm = {
 
 export function sendEmail(data: ContactForm) {
     const endpoint = "/api/email";
-    fetch(endpoint, {
+    return fetch(endpoint, {
         method: "POST",
         body: JSON.stringify(data),
         headers: {
@@ -15,11 +15,12 @@ export function sendEmail(data: ContactForm) {
         .then((res) => res.json())
         .then((res) => {
             if (!res.success) {
-                alert(res.success);
-                throw new Error("Failed to send email.");
+                return false;
+            } else {
+                return true;
             }
         })
-        .catch((err) => {
-            throw new Error(err);
+        .catch(() => {
+            return false;
         });
 }
