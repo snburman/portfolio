@@ -51,50 +51,55 @@ export default function Contact() {
     }
 
     return (
-        <>
-            <Box sx={styles.root}>
-                <Typography variant="h3">Contact</Typography>
-                <Typography>
-                    Feel free to contact me with any inquiries at &nbsp;
-                    <Link href="mailto:sean@seanburman.com">
-                        <u>sean@seanburman.com</u>
-                    </Link>
-                    , via &nbsp;
-                    <Link href="https://www.linkedin.com/in/seanburman/"><u>Linkedin</u></Link>, or with the form below.
-                </Typography>
-                <Box sx={styles.formContainer}>
-                    <FormControl style={styles.formControl}>
-                        <form
-                            onSubmit={handleSubmit(onSubmit, onError)}
-                            style={styles.form}
+        <Box sx={styles.root}>
+            <Typography variant="h3">Contact</Typography>
+            <Typography>
+                Feel free to contact me with any inquiries at &nbsp;
+                <Link href="mailto:sean@seanburman.com">
+                    <u>sean@seanburman.com</u>
+                </Link>
+                , via &nbsp;
+                <Link href="https://www.linkedin.com/in/seanburman/">
+                    <u>Linkedin</u>
+                </Link>
+                , or with the form below.
+            </Typography>
+            <Box sx={styles.formContainer}>
+                <FormControl style={styles.formControl}>
+                    <form
+                        onSubmit={handleSubmit(onSubmit, onError)}
+                        style={styles.form}
+                    >
+                        <Input
+                            type="email"
+                            id="email"
+                            placeholder="Email"
+                            required
+                            {...register("email", { required: true })}
+                        />
+                        <TextField
+                            id="message"
+                            placeholder="Message"
+                            multiline
+                            rows={4}
+                            {...register("message", { required: true })}
+                        />
+                        <Button
+                            type="submit"
+                            variant="contained"
+                            disabled={loading}
                         >
-                            <Input
-                                type="email"
-                                id="email"
-                                placeholder="Email"
-                                required
-                                {...register("email", { required: true })}
-                            />
-                            <TextField
-                                id="message"
-                                placeholder="Message"
-                                multiline
-                                rows={4}
-                                {...register("message", { required: true })}
-                            />
-                            <Button
-                                type="submit"
-                                variant="contained"
-                                disabled={loading}
-                            >
-                                {!loading ? "Submit" : "Sending message..."}
-                            </Button>
-                        </form>
-                    </FormControl>
-                </Box>
+                            {!loading ? "Submit" : "Sending message..."}
+                        </Button>
+                    </form>
+                    <br />
+                    <AlertMessage
+                        severity={alert.severity as Severity}
+                        message={alert.message}
+                    />
+                </FormControl>
             </Box>
-            <AlertMessage severity={alert.severity as Severity} message={alert.message} />
-        </>
+        </Box>
     );
 }
 
