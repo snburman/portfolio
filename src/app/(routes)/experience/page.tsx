@@ -445,8 +445,8 @@ const healthTimeLineData: TimeLineData[] = [
                     "Met with team members to plan and delegate tasks for a new project involving hosting a 3D imaging application using Three.js and React.",
             },
             {
-                title: "Cloud Platform Research and Development",
-                description: "Met with team members ",
+                title: "Cloud Platform Research",
+                description: "Researched cloud platforms for hosting the 3D imaging application, comparing AWS, Azure, and Google Cloud.",
             },
         ],
     },
