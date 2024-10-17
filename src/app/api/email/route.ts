@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {;
         await sendMail();
         return NextResponse.json({ success: true });
     }
-    catch (_) {
+    catch {
         return NextResponse.json({ success: false });
     }
 }
