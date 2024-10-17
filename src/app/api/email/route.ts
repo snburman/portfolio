@@ -3,9 +3,7 @@ import nodemailer from 'nodemailer';
 import Mail from 'nodemailer/lib/mailer';
 
 export async function POST(req: NextRequest) {;
-    console.log(process.env.NEXT_PUBLIC_APP_URL)
     const origin = req.headers.get('origin');
-    console.log(origin)
     if (origin !== process.env.NEXT_PUBLIC_APP_URL) {
         return NextResponse.json({ success: false });
     }
@@ -42,7 +40,7 @@ export async function POST(req: NextRequest) {;
         await sendMail();
         return NextResponse.json({ success: true });
     }
-    catch (err) {
+    catch (_) {
         return NextResponse.json({ success: false });
     }
 }
