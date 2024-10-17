@@ -16,9 +16,12 @@
     "@mui/icons-material": "^6.1.2",
     "@mui/material": "^6.1.2",
     "@mui/material-nextjs": "^6.1.2",
+    "@types/nodemailer": "^6.4.16",
     "next": "14.2.14",
+    "nodemailer": "^6.9.15",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-hook-form": "^7.53.0"
   },
   "devDependencies": {
     "@testing-library/dom": "^10.4.0",

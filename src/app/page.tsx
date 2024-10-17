@@ -7,13 +7,11 @@ import { StyleSheet } from "./types";
 import CourseList from "@/components/courseList";
 import PlainModal from "@/components/modal";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
-import LanguageBadges from "@/components/languageBadges";
 import { useWindowSize } from "./hooks";
-import { MAX_WIDTH_MOBILE } from "./constants";
+import { MAX_WIDTH_CONTENT, MAX_WIDTH_MOBILE } from "./constants";
 import AnchorMenu from "@/components/menu/anchorMenu";
 
 const sections = [
-    { title: "Bio" },
     { title: "Education" },
     { title: "Alumni" },
     { title: "Volunteering" },
@@ -22,20 +20,26 @@ const sections = [
 export default function About() {
     const [courseListOpen, setCourseListOpen] = React.useState(false);
     const window = useWindowSize();
-    const isMobile = window ? window.width < MAX_WIDTH_MOBILE: false;
+    const isMobile = window ? window.width < MAX_WIDTH_MOBILE : false;
 
     return (
         <Box sx={styles.root}>
-            {!isMobile && <AnchorMenu items={sections} />}
+            {!isMobile && <AnchorMenu sections={sections}/>}
             <Box sx={[styles.content, { marginLeft: isMobile ? "0" : "4rem" }]}>
                 <Box sx={styles.title}>
                     <Typography variant="h3">About</Typography>
                 </Box>
                 <Box sx={styles.topic}>
-                    <Typography variant="h4" id="Bio" sx={styles.topicTitle}>
-                        Bio
+                    <Typography>
+                        My name is Sean and I am a full stack developer with a
+                        passion for creating clean, efficient, and user-friendly
+                        applications. I have experience with a variety of
+                        technologies and languages and am always eager to
+                        learn more. I have most recently worked as a Full Stack
+                        Developer II at a Canadian startup where I had the
+                        opportunity to work on a wide range of projects and
+                        collaborate with a talented team of developers.
                     </Typography>
-                    <LanguageBadges />
                 </Box>
                 <Box sx={styles.topic}>
                     <Typography
@@ -112,7 +116,11 @@ export default function About() {
                     </Typography>
                 </Box>
                 <Box sx={styles.topic}>
-                    <Typography variant="h4" id="Volunteering" sx={styles.topicTitle}>
+                    <Typography
+                        variant="h4"
+                        id="Volunteering"
+                        sx={styles.topicTitle}
+                    >
                         Volunteering
                     </Typography>
                     <Typography>
@@ -144,8 +152,8 @@ const styles: StyleSheet = {
         marginTop: "5rem",
     },
     content: {
-        maxWidth: "60rem",
         width: "100%",
+        maxWidth: MAX_WIDTH_CONTENT,
     },
     title: {
         marginBottom: "2rem",
