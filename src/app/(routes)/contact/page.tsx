@@ -2,7 +2,7 @@
 
 import { ContactForm, sendEmail } from "@/app/api/email/sendEmail";
 import { validateEmail } from "@/app/utils/validate";
-import AlertMessage from "@/components/alert";
+import AlertMessage, { Severity } from "@/components/alert";
 import {
     Box,
     Button,
@@ -93,7 +93,7 @@ export default function Contact() {
                     </FormControl>
                 </Box>
             </Box>
-            <AlertMessage severity={alert.severity} message={alert.message} />
+            <AlertMessage severity={alert.severity as Severity} message={alert.message} />
         </>
     );
 }
