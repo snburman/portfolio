@@ -9,7 +9,7 @@ import { StyleSheet } from "./types";
 
 export const metadata: Metadata = {
     title: "Sean Burman",
-    description: "",
+    description: "Sean Burman is a full stack developer based out of Alberta, Canada.",
 };
 
 export default function RootLayout({
