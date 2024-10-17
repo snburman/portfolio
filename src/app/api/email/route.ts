@@ -4,7 +4,7 @@ import Mail from 'nodemailer/lib/mailer';
 
 export async function POST(req: NextRequest) {;
     const origin = req.headers.get('origin');
-    if (origin !== process.env.NEXT_PUBLIC_APP_URL) {
+    if (origin !== process.env.NEXT_PUBLIC_API_URL) {
         return NextResponse.json({ success: false });
     }
 
