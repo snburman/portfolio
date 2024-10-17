@@ -41,10 +41,10 @@ export default function Projects() {
                     description:
                         "Mnemo is a simple, lightweight, and fast in-memory key-value store written in Go.",
                     links: [
-                        {
-                            name: "Documentation",
-                            url: "https://snburman.github.io/docs/mnemo",
-                        },
+                        // {
+                        //     name: "Documentation",
+                        //     url: "https://snburman.github.io/docs/mnemo",
+                        // },
                         {
                             name: "Github",
                             url: "https://github.com/snburman/mnemo",
