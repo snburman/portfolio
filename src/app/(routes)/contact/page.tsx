@@ -11,6 +11,7 @@ import {
     TextField,
     Typography,
 } from "@mui/material";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -31,11 +32,10 @@ export default function Contact() {
         }
         setLoading(true);
         const sent = await sendEmail(data);
+        setLoading(false);
         if (sent) {
-            setLoading(false)
-            router.push("/contact/success")
+            router.push("/contact/success");
         } else {
-            setLoading(false)
             setAlert({
                 message: "Message failed to send.",
                 severity: "error",
@@ -55,8 +55,12 @@ export default function Contact() {
             <Box sx={styles.root}>
                 <Typography variant="h3">Contact</Typography>
                 <Typography>
-                    Feel free to contact me with any inquiries at
-                    sean@seanburman.com, via Linkedin, or with the form below.
+                    Feel free to contact me with any inquiries at &nbsp;
+                    <Link href="mailto:sean@seanburman.com">
+                        <u>sean@seanburman.com</u>
+                    </Link>
+                    , via &nbsp;
+                    <Link href="https://www.linkedin.com/in/seanburman/"><u>Linkedin</u></Link>, or with the form below.
                 </Typography>
                 <Box sx={styles.formContainer}>
                     <FormControl style={styles.formControl}>
@@ -78,8 +82,12 @@ export default function Contact() {
                                 rows={4}
                                 {...register("message", { required: true })}
                             />
-                            <Button type="submit" variant="contained" disabled={loading}>
-                                {!loading ? "Submit" : "Loading"}
+                            <Button
+                                type="submit"
+                                variant="contained"
+                                disabled={loading}
+                            >
+                                {!loading ? "Submit" : "Sending message..."}
                             </Button>
                         </form>
                     </FormControl>
@@ -94,10 +102,7 @@ const styles: { [key: string]: React.CSSProperties } = {
     root: {
         display: "flex",
         flexDirection: "column",
-        // alignItems: "center",
         gap: "1rem",
-        padding: "1rem",
-        // width: "100%",
     },
     formContainer: {
         display: "flex",

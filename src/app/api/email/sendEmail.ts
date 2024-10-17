@@ -3,7 +3,7 @@ export type ContactForm = {
     message: string;
 };
 
-export function sendEmail(data: ContactForm) {
+export async function sendEmail(data: ContactForm) {
     const endpoint = "/api/email";
     return fetch(endpoint, {
         method: "POST",

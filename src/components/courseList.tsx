@@ -81,7 +81,7 @@ const courseList = [
     },
     {
         title: "Open Source Web Applications",
-        info: "This course introduced web application development using open-source technologies, including Apache Web Server configuration. Built multi-tiered, database-driven applications with Java Server Pages using Oracle and MySQL and explored IOT technologies with Python, electronic components, and sensors.",
+        info: "This course introduced web application development using open-source technologies, including Apache Web Server configuration. Built multi-tiered, database-driven applications with Java Server Pages using Oracle and MySQL and explored IoT technologies with Python, electronic components, and sensors.",
     },
     {
         title: "Career Advancement Practicum",

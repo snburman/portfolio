@@ -3,7 +3,7 @@
 import { Box, Typography } from "@mui/material";
 import TimeLine, { TimeLineData } from "./components/timeline";
 import { useWindowSize } from "@/app/hooks";
-import { MAX_WIDTH_MOBILE } from "@/app/constants";
+import { MAX_WIDTH_CONTENT, MAX_WIDTH_MOBILE } from "@/app/constants";
 import AnchorMenu from "@/components/menu/anchorMenu";
 import Link from "next/link";
 import LanguageBadges from "@/components/languageBadges";
@@ -19,14 +19,20 @@ export default function Experience() {
 
     return (
         <Box sx={styles.root}>
-            {!isMobile && <AnchorMenu data={sections} />}
+            {!isMobile && <AnchorMenu sections={sections}/>}
             <Box sx={[styles.content, { marginLeft: isMobile ? "0" : "4rem" }]}>
                 <Box sx={styles.title}>
                     <Typography variant="h3">Experience</Typography>
                 </Box>
-                <Box>
-                    <Typography>
-                        Working for a startup for the past few years and being 
+                <Box style={styles.headerContainer}>
+                    <Typography style={styles.headerText}>
+                        Having worked for a startup for the past few years and
+                        being an enthusiastic learner, I have had the
+                        opportunity to work on a variety of projects and
+                        technologies. I have experience with full stack
+                        development from API development to React, cloud
+                        services, and IoT devices using multiple languages and
+                        frameworks.
                     </Typography>
                     <LanguageBadges />
                 </Box>
@@ -48,7 +54,7 @@ export default function Experience() {
                     <Typography>
                         Awake Labs is a company that specializes in creating
                         technology solutions for individuals with intellectual
-                        and developmental disabilities. 
+                        and developmental disabilities.
                     </Typography>
                     <br />
                     <TimeLine data={ALtimeLineData} />
@@ -60,6 +66,11 @@ export default function Experience() {
                         sx={styles.topicTitle}
                     >
                         H3alth Technologies Inc.
+                    </Typography>
+                    <Typography>
+                        <i>November 2020 - January 2021</i>
+                        <br />
+                        <i>Fully Remote</i>
                     </Typography>
                     <TimeLine data={healthTimeLineData} />
                 </Box>
@@ -75,11 +86,17 @@ const styles: { [key: string]: React.CSSProperties } = {
         width: "100%",
     },
     content: {
-        maxWidth: "60rem",
         width: "100%",
+        maxWidth: MAX_WIDTH_CONTENT,
     },
     title: {
         marginBottom: "2rem",
+    },
+    headerContainer: {
+        marginBottom: "2rem",
+    },
+    headerText: {
+        marginBottom: "1rem",
     },
 };
 
@@ -99,7 +116,17 @@ const ALtimeLineData: TimeLineData[] = [
         ],
     },
     {
-        date: "August - September 2021",
+        date: "August 2021",
+        items: [
+            {
+                title: "Tizen IoT Update",
+                description:
+                    "Tizen IoT research and development and code update for compatibility with repaired legacy system.",
+            },
+        ],
+    },
+    {
+        date: "September 2021",
         items: [
             {
                 title: "Architecture Research and Development",
@@ -152,9 +179,9 @@ const ALtimeLineData: TimeLineData[] = [
                     "Co-designed and implemented a RESTful API using NodeJS to send mobile notifications to clients and staff via Firebase.",
             },
             {
-                title: "Legacy IOT adaptation",
+                title: "Legacy IoT adaptation",
                 description:
-                    "Adapted legacy IOT device code to communicate with the new system architecture.",
+                    "Adapted legacy IoT device code to communicate with the new system architecture.",
             },
         ],
     },
@@ -254,7 +281,7 @@ const ALtimeLineData: TimeLineData[] = [
             {
                 title: "Training, Flask API Development",
                 description:
-                    "Worked with intern to develop a Flask API for a new graph feature in the React web dashboard.",
+                    "Worked with intern to develop a Flask API for a new graph feature implemented in the React web dashboard and mobile application.",
             },
             {
                 title: "Redux Toolkit",
@@ -284,7 +311,7 @@ const ALtimeLineData: TimeLineData[] = [
             {
                 title: "Analytics API",
                 description:
-                    "Used Golang to create a new analytics API to provide granular insights into user interaction with specific front end features and components.",
+                    "Used Golang to create a new analytics API to provide detailed bug reports and granular insights into user interaction with specific front end features and components.",
             },
         ],
     },
@@ -314,21 +341,23 @@ const ALtimeLineData: TimeLineData[] = [
             {
                 title: "Fitbit Code Refactoring",
                 description:
-                    "Worked with IOT developer to refactor Fitbit code to improve data collection and synchronization.",
+                    "Worked with IoT developer to refactor Fitbit code to improve data collection and synchronization.",
             },
         ],
     },
     {
         date: "September - October 2023",
         items: [
-            { 
-                title: "Promotion: Full Stack Developer II", 
-                description: "Promoted to Full Stack Developer II with additional responsibilities in project management and team leadership." 
+            {
+                title: "Promotion: Full Stack Developer II",
+                description:
+                    "Promoted to Full Stack Developer II with additional responsibilities in project management and team leadership.",
             },
             {
                 title: "Stakeholder Meetings and Feedback",
-                description: "Met with stakeholders to plan and develop new features and improvements to the platform."
-            }
+                description:
+                    "Met with stakeholders to plan and develop new features and improvements to the platform.",
+            },
         ],
     },
     {
@@ -342,9 +371,9 @@ const ALtimeLineData: TimeLineData[] = [
             {
                 title: "Golang Websocket API Development",
                 description:
-                    "Developed new APIs using Golang and Websockets to pair Fitbit devices in with a more efficient, secure, and user-friendly experience.",
-            }
-        ]
+                    "Developed new APIs using Golang and Websockets to pair Fitbit devices in with a more efficient, secure, and user-friendly experience. Greatly improved connectivity and client onboarding.",
+            },
+        ],
     },
     {
         date: "February 2024",
@@ -354,53 +383,61 @@ const ALtimeLineData: TimeLineData[] = [
                 description:
                     "Released major update to Fitbit pairing feature with improved UI and APIs for a better user experience.",
             },
-        ]
+        ],
     },
     {
         date: "March 2024",
         items: [
-            
-        ]
+            {
+                title: "Stakeholder Beta Feature Update",
+                description:
+                    "Worked with stakeholders to plan and produce a beta feature update for the React web dashboard which included detailed analytics and visualizations for organizational user activity and engagement.",
+            },
+        ],
     },
     {
         date: "April 2024",
         items: [
-            
-        ]
+            {
+                title: "Enhancements to User Insights API using Golang",
+                description:
+                    "Developed enhancements to the User Insights API using concurrent Golang routines for improved performance and data processing. Improved API response times by a factor of ten with additional features.",
+            },
+        ],
     },
     {
         date: "May 2024",
         items: [
-            
-        ]
+            {
+                title: "App Smith Low Code Internal Tools",
+                description:
+                    "Met with team members to plan and develop internal software tools using the App Smith low code platform.",
+            },
+        ],
     },
     {
-        date: "June 2024",
+        date: "June - August 2024",
         items: [
-            
-        ]
+            {
+                title: "Next.js Internal Tools",
+                description: "Developed internal tools using Next.js and React, porting existing features from the React web dashboard and integrating App Smith tools.",
+            },
+            {
+                title: "Extended Training with AWS Platform",
+                description:
+                    "Continued training with AWS platform Cloud Practitioner modules for certification.",
+            },
+        ],
     },
-    {
-        date: "July 2024",
-        items: [
-            
-        ]
-    },
-    {
-        date: "August 2024",
-        items: [
-            
-        ]
-    },
-];
+].reverse();
 
 const healthTimeLineData: TimeLineData[] = [
     {
         date: "November 2020",
         items: [
             {
-                title: "Co-op Internship",
-                description: "Started as a software development co-op intern.",
+                title: "Co-op Practicum",
+                description: "Started software development practicum through SAIT.",
             },
             {
                 title: "Project Planning and Delegation",
@@ -409,14 +446,28 @@ const healthTimeLineData: TimeLineData[] = [
             },
             {
                 title: "Cloud Platform Research and Development",
-                description:
-                    "Met with team members ",
+                description: "Met with team members ",
             },
-            
-        ]
+        ],
     },
     {
         date: "December 2020",
-        items: [],
+        items: [
+            {
+                title: "Cloud Services and React Development",
+                description:
+                    "Learned the basic of clouds services with AWS, Docker, and React development.",
+            },
+        ],
+    },
+    {
+        date: "January 2021",
+        items: [
+            {
+                title: "Project Completion",
+                description:
+                    "Along with fellow interns, merged and deployed a proof of concept 3D imaging application to production.",
+            },
+        ]
     }
-];
+].reverse();
