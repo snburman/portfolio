@@ -1,4 +1,4 @@
-import { Alert, AlertColor, AlertPropsColorOverrides } from "@mui/material";
+import { Alert } from "@mui/material";
 
 export default function AlertMessage(props: {
     message: string;
