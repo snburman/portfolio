@@ -18,11 +18,11 @@ export default function Projects() {
                 {...{
                     title: "Fncmp",
                     description:
-                        "FnCmp extends the Component interface to bring enhanced functionality to server-side rendering with Go.",
+                        "FnCmp extends the Component interface to bring enhanced functionality to server-side rendering with Go. Users can create functional components, handle events, and create lightening-fast dnyamic web pages with ease.",
                     links: [
                         {
                             name: "Documentation",
-                            url: "https://snburman.github.io/docs/fncmp",
+                            url: "https://snburman.github.io",
                         },
                         {
                             name: "Github",
@@ -39,7 +39,7 @@ export default function Projects() {
                 {...{
                     title: "Mnemo",
                     description:
-                        "Mnemo is a simple, lightweight, and fast in-memory key-value store written in Go.",
+                        "Mnemo is a simple, lightweight, and fast in-memory key-value store written in Go. Users can store session data and implement hooks for cache updates for complex server-side applications.",
                     links: [
                         // {
                         //     name: "Documentation",
