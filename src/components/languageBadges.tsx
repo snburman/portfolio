@@ -12,6 +12,7 @@ const badges = [
     "python",
     "html5",
     "css3",
+    "aws",
     "mongodb",
     "postgresql",
     "bash",
