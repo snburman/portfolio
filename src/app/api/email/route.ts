@@ -31,6 +31,7 @@ export async function POST(req: NextRequest) {;
         transport.sendMail({ ...mailOptions},(err, info) => {
             if (err) {
                 reject(err);
+                throw new Error(err.message);
             }
             resolve(info);
         });
