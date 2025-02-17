@@ -15,7 +15,7 @@ export async function sendEmail(data: ContactForm) {
         .then((res) => res.json())
         .then((res) => {
             if (!res.success) {
-                console.error("failed to send email", res.error);
+                console.error("failed to send email", res);
                 return false;
             } else {
                 return true;
