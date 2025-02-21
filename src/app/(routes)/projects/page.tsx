@@ -7,13 +7,41 @@ export default function Projects() {
         <Box sx={styles.root}>
             <Box sx={styles.headerContainer}>
                 <Typography variant="h3">Projects</Typography>
-                <Typography>
-                    Below are some of the non work-related projects I have been
-                    working on recently which are mostly comprised of Go at
-                    present but will soon incorporate front-end elements.
-                </Typography>
             </Box>
 
+            <ProjectCard
+                {...{
+                    title: "bitscrawler.com",
+                    description:
+                        `Bitscrawler is a multiplayer online game made with Golang and React Native Web.
+                        A full stack project consisting of three applications, it features real-time online gameplay using websockets and REST.
+                        Included are a drawing application for creating custom game assets, a chat system, a game console compiled
+                        to web assembly, and secure user authentication.
+                        `,
+                    links: [
+                        {
+                            name: "bitscrawler.com",
+                            url: "https://bitscrawler.com",
+                        },
+                        {
+                            name: "Documentation",
+                            url: "https://docs.bitscrawler.com",
+                        },
+                        {
+                            name: "Client Repo",
+                            url: "https://github.com/snburman/game-client",
+                        },
+                        {
+                            name: "Server Repo",
+                            url: "https://github.com/snburman/game-server",
+                        },
+                        {
+                            name: "Game Repo",
+                            url: "https://github.com/snburman/game",
+                        },
+                    ],
+                }}
+            />
             <ProjectCard
                 {...{
                     title: "Fncmp",
@@ -41,10 +69,6 @@ export default function Projects() {
                     description:
                         "Mnemo is a simple, lightweight, and fast in-memory key-value store written in Go. Users can store session data and implement hooks for cache updates for complex server-side applications.",
                     links: [
-                        // {
-                        //     name: "Documentation",
-                        //     url: "https://snburman.github.io/docs/mnemo",
-                        // },
                         {
                             name: "Github",
                             url: "https://github.com/snburman/mnemo",

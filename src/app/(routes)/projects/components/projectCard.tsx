@@ -58,6 +58,7 @@ const styles: StyleSheet = {
         flexDirection: "row",
         justifyContent: "center",
         alignItems: "center",
+        flexWrap: "wrap",
     },
     cardActionArea: {
         display: "flex",
