@@ -7,7 +7,7 @@ export async function POST(req: NextRequest) {
     // trim www. from origin
     const trimmed = origin?.replace(/www\./, "");
     if (
-        origin !== process.env.NEXT_PUBLIC_API_URL ||
+        origin !== process.env.NEXT_PUBLIC_API_URL &&
         trimmed !== process.env.NEXT_PUBLIC_API_URL
     ) {
         console.error("route: invalid origin: ", origin);
