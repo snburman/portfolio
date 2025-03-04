@@ -21,7 +21,8 @@ export async function sendEmail(data: ContactForm) {
                 return true;
             }
         })
-        .catch(() => {
+        .catch((err) => {
+            console.error("failed to send email", err);
             return false;
         });
 }

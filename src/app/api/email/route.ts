@@ -41,7 +41,7 @@ export async function POST(req: NextRequest) {;
         await sendMail();
         return NextResponse.json({ success: true });
     }
-    catch {
-        return NextResponse.json({ success: false });
+    catch (err) {
+        return NextResponse.json({ success: false, error: err });
     }
 }
