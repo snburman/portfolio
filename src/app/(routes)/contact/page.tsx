@@ -31,7 +31,9 @@ export default function Contact() {
             return;
         }
         setLoading(true);
-        const sent = await sendEmail(data);
+        const sent = await sendEmail(data).catch((err) => {
+            console.error("error sending mail: ", err);
+        })
         setLoading(false);
         if (sent) {
             router.push("/contact/success");
