@@ -32,10 +32,11 @@ export async function POST(req: NextRequest) {;
         transport.sendMail({ ...mailOptions},(err, info) => {
             if (err) {
                 reject(err);
+                console.error("route: failed to send email: ", err);
                 throw new Error(err.message);
             }
             resolve(info);
-        });
+        })
     });
 
     try {
